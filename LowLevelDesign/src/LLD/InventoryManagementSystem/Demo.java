@@ -9,7 +9,7 @@ import java.util.Map;
 
 class InventorySystem{
 	
-	static Map<String, Product> productMap = new HashMap<String, Product>();
+	static Map<String, Product> productMap = new HashMap<>();
 	static Map<Location, Unit> locationMap = new HashMap<>();
 	
 	public static void addProduct( Product product ) {
@@ -85,9 +85,13 @@ class User{
 	
 	public void executeOrder(Order order) {
 		for( Map.Entry<Product, Integer> item: order.productCount.entrySet() ) {
-			for(int i=0; i<item.getValue(); i++) {
+			
+			for(int i=0; i< item.getValue(); i++) {
+			
 				InventorySystem.removeUnit( item.getKey() );							
+			
 			}
+			
 		}
 
 	}
